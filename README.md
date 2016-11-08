@@ -1,1 +1,1 @@
-# livrariaonline
+# Projeto simples criado para estudar Spring MVC
