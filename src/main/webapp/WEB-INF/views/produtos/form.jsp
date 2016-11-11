@@ -11,7 +11,7 @@
 </head>
 <body>
 
-	<form:form action="${s:mvcUrl('PC#grava').build() }" method="post" commandName="produto">
+	<form:form action="${s:mvcUrl('PC#grava').build() }" method="post" commandName="produto" enctype="multipart/form-data">
 		<div>
 			<label>Titulo</label>
 			<form:input path="titulo"/>
@@ -41,7 +41,10 @@
 				<form:hidden path="precos[${status.index}].tipo" value="${tipoPreco}"/>
 			</div>
 		</c:forEach>
-		
+		<div>
+			<label>Sumário</label>
+			<input type="file" name="sumario"/>
+		</div>
 
 		<button type="submit">Cadastrar</button>
 	</form:form>
