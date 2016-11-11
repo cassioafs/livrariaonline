@@ -100,7 +100,7 @@
 	            <p class="variant-price">${preco.valor}</p>
 	          </li>
 	    	</c:forEach>           
-	    </ul>
+	    </ul>	
 	    <button type="submit" class="submit-image icon-basket-alt" alt="Compre Agora" title="Compre Agora${produto.titulo}"></button>
 	  </form>
 	  
