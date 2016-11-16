@@ -1,11 +1,15 @@
 package br.com.livraria.loja.models;
 
+import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.WebApplicationContext;
 
 @Component
+@Scope(value=WebApplicationContext.SCOPE_SESSION)
 public class CarrinhoCompras {
 
 	private Map<CarrinhoItem, Integer> itens = new LinkedHashMap<CarrinhoItem, Integer>();
@@ -13,6 +17,10 @@ public class CarrinhoCompras {
 	public void add(CarrinhoItem item){
 	
 		itens.put(item, getQuantidade(item)+1);
+	}
+	
+	public Collection<CarrinhoItem> getItens() {
+		return itens.keySet();
 	}
 
 	private int getQuantidade(CarrinhoItem item) {
