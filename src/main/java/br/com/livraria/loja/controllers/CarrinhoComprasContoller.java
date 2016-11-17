@@ -1,9 +1,12 @@
 package br.com.livraria.loja.controllers;
 
+import java.io.Serializable;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -17,7 +20,9 @@ import br.com.livraria.loja.models.TipoPreco;
 @Controller
 @RequestMapping("/carrinho")
 @Scope(value=WebApplicationContext.SCOPE_REQUEST)
-public class CarrinhoComprasContoller {
+public class CarrinhoComprasContoller implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@Autowired
 	private ProdutoDAO produtoDao;
@@ -27,7 +32,7 @@ public class CarrinhoComprasContoller {
 	
 	@RequestMapping("/add")
 	public ModelAndView add(Integer produtoId, TipoPreco tipoPreco){
-		ModelAndView modelAndView = new ModelAndView("redirect:/produtos");
+		ModelAndView modelAndView = new ModelAndView("redirect:/carrinho");
 		
 		CarrinhoItem carrinhoItem = criaItem(produtoId, tipoPreco);
 		
@@ -43,5 +48,11 @@ public class CarrinhoComprasContoller {
 		
 		return carrinhoItem;
 	}
+	
+	@RequestMapping(method=RequestMethod.GET)
+	public ModelAndView itens(){
+		return new ModelAndView("carrinho/itens");
+	}
+	
 	
 }

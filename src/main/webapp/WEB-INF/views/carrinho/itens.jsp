@@ -36,7 +36,7 @@
 			<div id="header-content">
 				<nav id="main-nav">
 					<ul class="clearfix">
-						<li><a href="#{s:mvcUrl('CCC#itens').build() }"rel="nofollow">Carrinho (#{carrinhoCompras.quantidade })</a></li>
+						<li><a href="${s:mvcUrl('CCC#itens').build() }"rel="nofollow">Carrinho (${carrinhoCompras.quantidade })</a></li>
 						<li><a href="/pages/sobre-a-casa-do-codigo" rel="nofollow">Sobre Nós</a></li>
 						<li><a href="/pages/perguntas-frequentes" rel="nofollow">Perguntas Frequentes</a></li>
 					</ul>
@@ -86,19 +86,19 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${carrinhoCompras.itens }" var="item">
+				<c:forEach items="${carrinhoCompras.itens}" var="item">
 				<tr>
 					<td class="cart-img-col">
 						<img src="http://cdn.shopify.com/s/files/1/0155/7645/products/css-eficiente-featured_large.png?v=1435245145" width="71px" height="100px" />
 					</td>
-					<td class="item-title">${item.produto.titulo}</td>
-					<td class="numeric-cell">${item.preco}</td>
+					<td class="item-title">${item.produto.titulo }</td>
+					<td class="numeric-cell">${item.preco }</td>
 					<td class="quantity-input-cell">
-						<input type="number" min="0" readonly="readonly" id="quantidade" name="quantidade" value="${carrinhoCompras.getQuantidade(item) }" />
+						<input type="number" min="0" id="quantidade" name="quantidade" value=${carrinhoCompras.getQuantidade(item) }>
 					</td>
 					<td class="numeric-cell">${carrinhoCompras.getTotal(item)}</td>
 					<td class="remove-item">
-						<form action="${s:mvcUrl('CCC#remover').arg(0, item.produto.id).arg(1, item.tipoPreco).build() }" method="post">
+						<form action="" method="post">
 							<input type="image" src="/excluir.png" alt="Excluir" title="Excluir" />
 						</form>
 					</td>
@@ -108,7 +108,7 @@
 			<tfoot>
 				<tr>
 					<td colspan="3">
-						<form action="${s:mvcUrl('PC#finalizar').build()}" method="post">
+						<form action="" method="post">
 							<input type="submit" class="checkout" name="checkout" value="Finalizar compra" />
 						</form>
 					</td>
