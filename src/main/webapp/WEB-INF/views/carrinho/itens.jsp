@@ -78,18 +78,18 @@
 			<thead>
 				<tr>
 					<th class="cart-img-col"></th>
-					<th width="65%">Item</th>
-					<th width="10%">Preço</th>
-					<th width="10%">Quantidade</th>
-					<th width="10%">Total</th>
-					<th width="5%"></th>
+					<th width="">Item</th>
+					<th width="">Preço</th>
+					<th width="">Quantidade</th>
+					<th width="">Total</th>
+					<th width=""></th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${carrinhoCompras.itens}" var="item">
 				<tr>
 					<td class="cart-img-col">
-						<img src="http://cdn.shopify.com/s/files/1/0155/7645/products/css-eficiente-featured_large.png?v=1435245145" width="71px" height="100px" />
+						<img src="http://cdn.shopify.com/s/files/1/0155/7645/products/css-eficiente-featured_large.png?v=1435245145" width="100px" height="100px" />
 					</td>
 					<td class="item-title">${item.produto.titulo }</td>
 					<td class="numeric-cell">${item.preco }</td>
